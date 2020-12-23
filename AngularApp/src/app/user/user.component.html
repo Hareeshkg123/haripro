@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="row">
+          <div class="col s5">
+            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Enter full name" required>
+                  <label>Name :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="place" #name="ngModel" [(ngModel)]="userService.selectedUser.place" placeholder="Enter your place">
+                  <label>Place :</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="number" name="age" #name="ngModel" [(ngModel)]="userService.selectedUser.age" placeholder="Enter your age">
+                  <label>Age :</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="email" #name="ngModel" [(ngModel)]="userService.selectedUser.email" placeholder="Eg:abc@gmail.com">
+                  <label>Email :</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <button class="btn btn-custom right" type="button" (click)="resetForm(userForm)" >Reset</button>
+                  <button class="btn btn-custom right" type="submit" [disabled]="!userForm.valid">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col s7">
+            <table class="responsive-table highlight">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Place</th>
+                  <th>Age</th>
+                  <th>Email</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tr *ngFor="let usr of userService.users">
+                <td>{{usr.name}}</td>
+                <td>{{usr.place}}</td>
+                <td>{{usr.age}}</td>
+                <td>{{usr.email}}</td>
+                <td>
+                  <a class="action-btn" (click)="onEdit(usr)">
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <a class="action-btn" (click)="onDelete(usr._id,userForm)">
+                    <i class="material-icons">delete</i>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
