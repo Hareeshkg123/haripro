@@ -8,28 +8,32 @@
               <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
               <div class="row">
                 <div class="input-field col s12">
-                  <input type="text" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Enter full name" required>
-                  <label>Name :
+                  <input type="text" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Enter full name"required>
+                  <label style="color: white;">Name :
                     <label class="red-text">*</label>
                   </label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input type="text" name="place" #name="ngModel" [(ngModel)]="userService.selectedUser.place" placeholder="Enter your place">
-                  <label>Place :</label>
+                  <input type="text" name="place" #name="ngModel" [(ngModel)]="userService.selectedUser.place" placeholder="Enter your place" required>
+                  <label style="color: white;">Place :
+                    <label class="red-text">*</label>
+                  </label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input type="number" name="age" #name="ngModel" [(ngModel)]="userService.selectedUser.age" placeholder="Enter your age">
-                  <label>Age :</label>
+                  <input type="number" name="age" #name="ngModel" [(ngModel)]="userService.selectedUser.age" placeholder="Enter your age" required>
+                  <label style="color: white;">Age :
+                    <label class="red-text">*</label>
+                  </label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
                   <input type="text" name="email" #name="ngModel" [(ngModel)]="userService.selectedUser.email" placeholder="Eg:abc@gmail.com">
-                  <label>Email :</label>
+                  <label style="color: white;">Email :</label>
                 </div>
               </div>
               <div class="row">
@@ -57,10 +61,10 @@
                 <td>{{usr.age}}</td>
                 <td>{{usr.email}}</td>
                 <td>
-                  <a class="action-btn" (click)="onEdit(usr)">
+                  <a class="action-btn" (click)="onEdit(usr)" style="color: azure;">
                     <i class="material-icons">edit</i>
                   </a>
-                  <a class="action-btn" (click)="onDelete(usr._id,userForm)">
+                  <a class="action-btn" (click)="onDelete(usr._id,userForm)" style="color: orangered;">
                     <i class="material-icons">delete</i>
                   </a>
                 </td>
