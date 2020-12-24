@@ -32,8 +32,10 @@
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input type="text" name="email" #name="ngModel" [(ngModel)]="userService.selectedUser.email" placeholder="Eg:abc@gmail.com">
+                  <input type="text" class="form-control" name="email" #email="ngModel" [(ngModel)]="userService.selectedUser.email" placeholder="Eg:abc@gmail.com" email>
                   <label style="color: white;">Email :</label>
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                  class="alert alert-danger" style="color:orangered;">Enter a valid email</div>
                 </div>
               </div>
               <div class="row">
